@@ -6,6 +6,6 @@ with open(filename, 'r') as file:
     for line in file:
         split = line.split('\t')
         if len(split) != 9:
-            print(line)
+            sys.stdout.write(line)
         elif split[6] != '?':
-            print(line)
+            sys.stdout.write(line)
