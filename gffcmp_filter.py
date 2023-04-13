@@ -3,7 +3,7 @@ import pandas as pd
 
 parser = ArgumentParser()
 parser.add_argument('-c', '--code', help='Class code')
-parser.add_argument('-l', '--len', help='Maximum transcript length (inclusive)')
+parser.add_argument('-l', '--len', help='Maximum transcript length (inclusive)', type=int)
 parser.add_argument('-o', '--output', help='Output file')
 parser.add_argument('filename')
 
