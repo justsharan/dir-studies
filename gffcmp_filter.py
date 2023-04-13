@@ -9,7 +9,15 @@ parser.add_argument('filename')
 
 args = parser.parse_args()
 
-gffcmp_file = pd.read_csv(args.filename, sep='\t')
-filtered = gffcmp_file[(gffcmp_file['class_code'] == args.code) & (gffcmp_file['len'] <= args.len)]
+pd.options.display.max_columns = None
+pd.options.display.max_rows = None
 
-filtered.to_csv(args.output)
+cols = ['seqname', 'source', 'feature', 'start', 'end', 'score', 'strand', 'frame', 'attribute']
+
+gffcmp = pd.read_csv(args.filename, sep='\t', names=cols, header=None)
+
+class_code_filter = gffcmp['attribute'].str.contains(f'class_code "{args.code}"')
+length_filter = gffcmp['end'] - gffcmp['start'] <= args.len
+
+filtered = gffcmp[class_code_filter & length_filter]
+filtered.to_csv(args.output, sep='\t', header=None, index=None)
