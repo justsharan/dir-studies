@@ -1,7 +1,8 @@
 name: dirstudies
 channels:
+  - bioconda
   - conda-forge
   - defaults
 dependencies:
-  - biopython
+  - pandas
 prefix: /Users/cyborg/miniconda3/envs/dirstudies
