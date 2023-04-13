@@ -5,4 +5,5 @@ channels:
   - defaults
 dependencies:
   - pandas
+  - biopython
 prefix: /Users/cyborg/miniconda3/envs/dirstudies
