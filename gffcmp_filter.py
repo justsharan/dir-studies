@@ -9,7 +9,7 @@ parser.add_argument('filename')
 
 args = parser.parse_args()
 
-gffcmp_file = pd.read_csv(args.filename)
+gffcmp_file = pd.read_csv(args.filename, sep='\t')
 filtered = gffcmp_file[(gffcmp_file['class_code'] == args.code) & (gffcmp_file['len'] <= args.len)]
 
 filtered.to_csv(args.output)
