@@ -1,5 +1,4 @@
 #!/usr/bin/env Rscript
-
 library(stringr)
 library(tidyverse)
 
@@ -18,6 +17,6 @@ print(head(df))
 ggplot(df, aes(x = category, y = freq)) +
   geom_bar(stat = 'identity') +
   coord_flip() +
-  labs(x = 'Biological Process', y = 'Number of Genes')
+  labs(x = '', y = 'Number of Genes')
   theme_bw()
 
